@@ -4,6 +4,10 @@
 
 #include <xinu.h>
 #include <string.h>
+/********************/
+#include <mymotd.h>
+#include <rcreate.h>
+/********************/
 
 extern	void	start(void);	/* Start of Xinu code			*/
 extern	void	*_end;		/* End of Xinu code			*/
@@ -84,15 +88,19 @@ void	nulluser()
 
 	/* Create a process to finish startup and start main */
 
-	/*************************************************************/	
+	/**************************************************************************************************************************/
 	// resume(create((void *)startup, INITSTK, INITPRIO,
 	//				"Startup process", 0, NULL));
 
-	/* startup() 함수를 실행하는 프로세스 생성은 오버헤드를 추가하기 때문에 nulluser() 함수에서 main() 함수를 직접 실행하는 프로세스를 생성한다.*/
+	mymotd();
 
-	resume(create((void *)main, INITSTK, INITPRIO,
-					"Main process", 0, NULL));
-	/*************************************************************/
+	/* startup() 함수를 실행하는 프로세스 생성은 오버헤드를 추가하기 때문에 nulluser() 함수에서 main() 함수를 직접 실행하는 프로세스를 생성한다.
+	 * resume(create((void *)main, INITSTK, INITPRIO,
+	 *					"Main process", 0, NULL));
+	*/
+
+	rcreate((void *)main, INITSTK, INITPRIO, "Main process", 0, NULL);
+	/**************************************************************************************************************************/
 
 	/* Become the Null process (i.e., guarantee that the CPU has	*/
 	/*  something to run when no other process is ready to execute)	*/
