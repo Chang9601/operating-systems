@@ -108,7 +108,17 @@ void trap(int inum)
 	kprintf("TRAP\n");
 	asm("movl	%ebp,fp");
 	sp = fp + 15;	/* eflags/CS/eip/ebp/regs/trap#/Xtrap/ebp */
-	kprintf("Xinu trap!\n");
+
+	/********************************************/
+	// kprintf("Xinu trap!\n");
+	
+	kprintf("csup96\n");
+  kprintf("이창섭\n");
+	kprintf("clktime=%d\n," clktime);
+	
+	/********************************************/
+
+
 	if (inum < 16)
 		kprintf("exception %d (%s) currpid %d (%s)\n", inum,
 			inames[inum], currpid, proctab[currpid].prname);

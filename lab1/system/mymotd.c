@@ -2,6 +2,6 @@
 
 void mymotd(void)
 {
-  kprintf("이창섭");
   kprintf("csup96");
+  kprintf("이창섭");
 }

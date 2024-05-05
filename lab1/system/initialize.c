@@ -97,7 +97,7 @@ void	nulluser()
 	/* startup() 함수를 실행하는 프로세스 생성은 오버헤드를 추가하기 때문에 nulluser() 함수에서 main() 함수를 직접 실행하는 프로세스를 생성한다.
 	 * resume(create((void *)main, INITSTK, INITPRIO,
 	 *					"Main process", 0, NULL));
-	*/
+	 */
 
 	rcreate((void *)main, INITSTK, INITPRIO, "Main process", 0, NULL);
 	/**************************************************************************************************************************/

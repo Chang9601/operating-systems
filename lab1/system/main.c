@@ -4,6 +4,13 @@
 
 process	main(void)
 {
+
+  /************************/
+	
+	int err = 1 / 0;
+
+	/************************/
+
 	pid32	shpid;		/* Shell process ID */
 
 	printf("\n\n");

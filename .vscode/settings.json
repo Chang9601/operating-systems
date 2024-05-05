@@ -1,0 +1,12 @@
+{
+  "files.associations": {
+    "xinu.h": "c",
+    "semaphore.h": "c",
+    "memory.h": "c",
+    "io.h": "c",
+    "rfilesys.h": "c",
+    "process.h": "c",
+    "tftp.h": "c",
+    "name.h": "c"
+  }
+}
